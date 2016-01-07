@@ -8,12 +8,13 @@
   </head>
   <body>
     <div class="container">
+	  <div id="wishingwell"></div>
       <h1>The Metamorphosis Project <small>by Thai Nguyen, Jeffrey Wang</small></h1>
       <img src="media/3.png" width="100%" usemap="#clickmap">
       <map name="clickmap">
         <area shape="rect" coords="374,411,665,477" onclick="javascript:kidscry()">
         <area shape="rect" coords="17,228,421,680" onclick="javascript:soniacry()">
-        <area shape="rect" coords="678,219,1140,768" onclick="javascript:kiangry()">
+        <area id="ki" shape="rect" coords="678,219,1140,768" onclick="javascript:kiangry()">
         <area shape="rect" coords="422,544,668,678" onclick="javascript:soniacry()">
         <area shape="rect" coords="368,329,722,410" onclick="javascript:alert('This sheet helps the children hide from the misery of the elder Marmeladovs.')">
 
@@ -34,13 +35,20 @@
       }
       function kiangry() {
         document.getElementById('angrywoman').play();
-        alert('Give me your money! --Katerina Ivanonva');
+		popmsg("Give me your money! --Katerina Ivanovna", 1035, 635, 'ki' );
+        //alert('Give me your money! --Katerina Ivanonva');
       }
+	  function popmsg( msg, width, height, trigger ) {
+		document.getElementById('wishingwell').innerHTML = "<div class=\"well\" style=\"position: absolute; left: " + width + "px; top: " + height + "px;\">" + msg + "</div>";
+		//$(trigger).toggle( 1500, function() {
+		  // yay
+		//});
+	  }
       $(function(){
         $(document).mousemove(function(e){
-          $('#coordinates').html('x: ' + (e.pageX-106) + ' y : ' + (e.pageY-100));
+          $('#coordinates').html('x: ' + (e.pageX) + ' y : ' + (e.pageY));
         });
-      })
+      });
       </script>
     </div>
   </body>
