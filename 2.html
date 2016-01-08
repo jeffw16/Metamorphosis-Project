@@ -9,22 +9,27 @@
   <body>
     <div class="container">
 	  <div id="wishingwell"></div>
-      <h1>The Metamorphosis Project / 2 <small>by Thai Nguyen, Jeffrey Wang</small></h1>
+      <h1>The Metamorphosis Project / 2. The Violin <small>by Thai Nguyen, Jeffrey Wang</small></h1>
 	  <p><a href="index.html">Return to the main page</a></p>
       <img src="media/2.png" width="100%" usemap="#clickmap">
       <map name="clickmap">
-        <area shape="rect" coords="400,327,1300,810" onclick="javascript:violin()">
-
+        <area shape="rect" coords="590,327,980,610" onclick="javascript:violin()">
+		<area shape="rect" coords="300,610,600,800" onclick="javascript:blood()">
         <!--<area shape="circle" coords="90,58,3" href="mercur.htm">-->
       </map>
       <!--<div id="coordinates">0</div>-->
       <audio id="violinsound" src="media/violin.mp3" preload="auto"></audio>
       <audio id="crywoman" src="media/crywoman.wav" preload="auto"></audio>
+	  <audio id="scream" src="media/scream.mp3" preload="auto"></audio>
       <audio id="angrywoman" src="media/angry.mp3" preload="auto"></audio>
       <script type="text/javascript">
       function violin() {
         document.getElementById('violinsound').play();
         popmsg('The violin highlights Gregor\'s characteristically human appreciation for artistic intricacies, delivering an ironic message that he in fact displays more of his humanity although he had  lost his humanity previously.', 200, 238);
+      }
+	  function blood() {
+        document.getElementById('scream').play();
+        popmsg('The blood of the pawnbroker is like the paint in the room used during its refurbishment.', 300, 238);
       }
 
 	  function popmsg( msg, width, height) {
