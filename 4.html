@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>4 | The Metamorphosis Project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+	  <div id="wishingwell"></div>
+      <h1>The Metamorphosis Project / 4 <small>by Thai Nguyen, Jeffrey Wang</small></h1>
+      <img src="media/4.png" width="100%" usemap="#clickmap">
+      <map name="clickmap">
+        <area shape="rect" coords="630,360,1500,700" onclick="javascript:clock()">
+		<area shape="rect" coords="200,170,1200,700" onclick="javascript:axe()">
+      </map>
+      <div id="coordinates">0</div>
+      <audio id="clock" src="media/clock.mp3" preload="auto"></audio>
+      <audio id="crywoman" src="media/crywoman.wav" preload="auto"></audio>
+      <audio id="scream" src="media/scream.mp3" preload="auto"></audio>
+      <script type="text/javascript">
+      function axe() {
+        document.getElementById('scream').play();
+        popmsg('Hack hack, the time of your life is up.', 550, 238);
+      }
+	  function clock() {
+        document.getElementById('clock').play();
+        popmsg('Tick tock, the conformance with the norms of society is up, and Raskolnikov shall stand it no more,<br />so he has thrown an axe into the clock of society. #DefeatBigBureaucracy', 550, 238);
+      }
+	  function popmsg( msg, width, height) {
+		document.getElementById("wishingwell").innerHTML = "<div id=\"wishingwellcontent\" class=\"well\" style=\"position: absolute; left: " + width + "px; top: " + height + "px;\">" + msg + "</div>";
+		//$(document).click('ki', function() {
+		//$(document).ready(function(){
+		//	$('wishingwellcontent').hide();
+		//});
+	  }
+	  function popmsgtoggle() {
+		//$("ki").click(function() {
+			//$("wishingwellcontent").toggle();
+			var elem = $("wishingwellcontent")[0];
+			if ( getStyle('wishingwellcontent', 'display') == 'none' ) {
+				$("wishingwellcontent").show();
+				alert("shown");
+			} else {
+				$("wishingwellcontent").hide();
+			}
+		//});
+	  }
+		function getStyle(el,styleProp) {
+			var x = document.getElementById(el);
+			//if (x.currentStyle)
+			//	var y = x.currentStyle[styleProp];
+			//else if (window.getComputedStyle)
+				var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
+			return y;
+		}
+      $(function(){
+        $(document).mousemove(function(e){
+          $('#coordinates').html('x: ' + (e.pageX) + ' y : ' + (e.pageY));
+        });
+      });
+      </script>
+    </div>
+  </body>
+</html>

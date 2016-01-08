@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>1 | The Metamorphosis Project</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+	  <div id="wishingwell"></div>
+      <h1>The Metamorphosis Project / 1 <small>by Thai Nguyen, Jeffrey Wang</small></h1>
+      <img src="media/1.png" width="100%" usemap="#clickmap">
+      <map name="clickmap">
+        <area shape="rect" coords="470,25,700,450" onclick="javascript:thewindow()">
+		<area shape="rect" coords="550,195,850,700" onclick="javascript:chair()">
+        <!--<area shape="circle" coords="90,58,3" href="mercur.htm">-->
+      </map>
+      <div id="coordinates">0</div>
+      <audio id="wind" src="media/wind.mp3" preload="auto"></audio>
+	  <audio id="creak" src="media/creak.mp3" preload="auto"></audio>
+      <script type="text/javascript">
+      function thewindow() {
+        document.getElementById('wind').play();
+        popmsg('The window represents gazing outside to no avail, attempts at connecting with the outside world, and imprisonment.', 433, 682);
+      }
+	  function chair() {
+        document.getElementById('creak').play();
+        popmsg('The chair - a symbol of imprisonment for Gregor as he uses it to gaze outside at Big Bureaucracy.', 433, 782);
+      }
+	  function popmsg( msg, width, height) {
+		document.getElementById("wishingwell").innerHTML = "<div id=\"wishingwellcontent\" class=\"well\" style=\"position: absolute; left: " + width + "px; top: " + height + "px;\">" + msg + "</div>";
+		//$(document).click('ki', function() {
+		//$(document).ready(function(){
+		//	$('wishingwellcontent').hide();
+		//});
+	  }
+	  function popmsgtoggle() {
+		//$("ki").click(function() {
+			//$("wishingwellcontent").toggle();
+			var elem = $("wishingwellcontent")[0];
+			if ( getStyle('wishingwellcontent', 'display') == 'none' ) {
+				$("wishingwellcontent").show();
+				alert("shown");
+			} else {
+				$("wishingwellcontent").hide();
+			}
+		//});
+	  }
+		function getStyle(el,styleProp) {
+			var x = document.getElementById(el);
+			//if (x.currentStyle)
+			//	var y = x.currentStyle[styleProp];
+			//else if (window.getComputedStyle)
+				var y = document.defaultView.getComputedStyle(x,null).getPropertyValue(styleProp);
+			return y;
+		}
+      $(function(){
+        $(document).mousemove(function(e){
+          $('#coordinates').html('x: ' + (e.pageX) + ' y : ' + (e.pageY));
+        });
+      });
+      </script>
+    </div>
+  </body>
+</html>
