@@ -15,6 +15,7 @@
       <map name="clickmap">
         <area shape="rect" coords="590,327,980,610" onclick="javascript:violin()">
 		<area shape="rect" coords="300,610,600,800" onclick="javascript:blood()">
+		<area shape="rect" coords="0,75,200,250" onclick="javascript:bell()">
         <!--<area shape="circle" coords="90,58,3" href="mercur.htm">-->
       </map>
       <!--<div id="coordinates">0</div>-->
@@ -22,6 +23,7 @@
       <audio id="crywoman" src="media/crywoman.wav" preload="auto"></audio>
 	  <audio id="scream" src="media/scream.mp3" preload="auto"></audio>
       <audio id="angrywoman" src="media/angry.mp3" preload="auto"></audio>
+	  <audio id="bell" src="media/doorbell.mp3" preload="auto"></audio>
       <script type="text/javascript">
       function violin() {
         document.getElementById('violinsound').play();
@@ -31,7 +33,10 @@
         document.getElementById('scream').play();
         popmsg('The blood of the pawnbroker is like the paint in the room used during its refurbishment.', 300, 238);
       }
-
+	  function bell() {
+	    document.getElementById('bell').play();
+        popmsg('Raskolnikov displays a great arrogance when he finds a crazed obsession with ringing the pawnbroker\'s doorbell to bring back memories of the night of the murder.', 300, 500);
+	  }
 	  function popmsg( msg, width, height) {
 		document.getElementById("wishingwell").innerHTML = "<div id=\"wishingwellcontent\" class=\"well\" style=\"position: absolute; left: " + width + "px; top: " + height + "px;\">" + msg + "</div>";
 		//$(document).click('ki', function() {
